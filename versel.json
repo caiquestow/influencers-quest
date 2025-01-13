@@ -1,7 +1,14 @@
 {
-  "functions": {
-    "api/instagram-agent/route.ts": {
-      "runtime": "nodejs18.x"
+  "builds": [
+    {
+      "src": "Dockerfile",
+      "use": "@vercel/docker"
     }
-  }
+  ],
+  "routes": [
+    {
+      "src": "/api/.*",
+      "dest": "/api"
+    }
+  ]
 }
