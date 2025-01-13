@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+// README.md
+# Verify Influencers
 
-## Getting Started
+Uma plataforma para verificar alegações de saúde feitas por influenciadores usando IA.
 
-First, run the development server:
+## Setup Local
 
+1. Clone o repositório:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone [seu-repositorio]
+cd verify-influencers
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Instale as dependências:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Execute o projeto:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Acesse http://localhost:3000
 
-## Learn More
+## Deploy no Vercel
 
-To learn more about Next.js, take a look at the following resources:
+1. Push seu código para o GitHub
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. Acesse vercel.com e faça login
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. Clique em "New Project"
 
-## Deploy on Vercel
+4. Selecione o repositório
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+5. Configure as variáveis de ambiente (se necessário)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+6. Clique em "Deploy"
+
+## Estrutura do Projeto
+
+```
+verify-influencers/
+├── src/
+│   ├── app/                  # Páginas Next.js
+│   ├── components/           # Componentes React
+│   ├── contexts/             # Contextos React
+│   └── lib/                  # Utilitários e dados mockados
+├── public/                   # Arquivos estáticos
+└── package.json             # Dependências
+```
+
+## Tecnologias Utilizadas
+
+- Next.js 13+ (App Router)
+- React 18
+- TypeScript
+- Tailwind CSS
+- Lucide Icons
+
+## Funcionalidades
+
+- [x] Busca de influenciadores
+- [x] Análise de alegações
+- [x] Verificação científica
+- [x] Dashboard interativo
+- [x] Perfis detalhados
