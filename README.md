@@ -14,6 +14,13 @@ Access the live demo at: [Verify Influencers Demo](https://influencers-quest-m06
 - Built a working search and filtering system
 - Implemented responsive design for various screen sizes
 
+## Implementation Notes
+
+While the local development version included real-time Instagram data fetching using Python, the production demo uses mocked data to ensure stable demonstration of the UI and core functionality. This decision was made to prioritize reliable deployment and showcase the application's interface and workflow. In a production environment, this would be implemented using:
+- A proper backend service for Instagram data fetching
+- API rate limiting and caching
+- Proper error handling for external service dependencies
+
 ### Technical Decisions
 - Used mock data instead of direct API integrations to demonstrate functionality without external dependencies
 - Focused on creating a smooth user experience with immediate feedback
