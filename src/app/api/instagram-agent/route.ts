@@ -23,7 +23,7 @@ export async function POST(request: Request) {
         console.error('Python stderr:', data.toString());
       });
 
-      pythonProcess.on('close', (code) => {
+      pythonProcess.on('close', () => {
         try {
           // Procura pelo último JSON válido na saída
           const jsonMatches = dataString.match(/\{[^]*\}/g);
