@@ -1,5 +1,7 @@
 // src/components/APIKeyModal.tsx
-import { useState } from 'react';
+'use client';
+
+import { useState, useEffect } from 'react';
 import { saveApiKey, getApiKey } from '@/lib/cryptoUtils';
 
 interface APIKeyModalProps {
@@ -8,16 +10,25 @@ interface APIKeyModalProps {
 }
 
 export default function APIKeyModal({ isOpen, onClose }: APIKeyModalProps) {
-  const [apiKey, setApiKey] = useState(getApiKey());
+  const [apiKey, setApiKey] = useState('');
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+    // Só pega a API key após o componente montar no cliente
+    const storedApiKey = getApiKey();
+    setApiKey(storedApiKey);
+  }, []);
 
   const handleSave = () => {
-    if (apiKey.trim()) {
+    if (isClient && apiKey.trim()) {
       saveApiKey(apiKey.trim());
       onClose();
     }
   };
 
-  if (!isOpen) return null;
+  // Se não for cliente ou modal fechado, não renderiza nada
+  if (!isClient || !isOpen) return null;
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black/50">

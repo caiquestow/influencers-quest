@@ -10,6 +10,7 @@ interface InstagramData {
   posts: number;
   website?: string;
   error?: string;
+  profilePicture?: string;
 }
 
 interface AIAnalysisResult {

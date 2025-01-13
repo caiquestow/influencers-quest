@@ -14,16 +14,24 @@ export const decryptApiKey = (encryptedKey: string): string => {
 };
 
 export const saveApiKey = (apiKey: string) => {
-  const encryptedKey = encryptApiKey(apiKey);
-  localStorage.setItem('ai_api_key', encryptedKey);
+  if (typeof window !== 'undefined') {
+    const encryptedKey = encryptApiKey(apiKey);
+    window.localStorage.setItem('ai_api_key', encryptedKey);
+  }
 };
 
 export const getApiKey = (): string => {
-  const encryptedKey = localStorage.getItem('ai_api_key');
-  if (!encryptedKey) return '';
-  return decryptApiKey(encryptedKey);
+  if (typeof window !== 'undefined') {
+    const encryptedKey = window.localStorage.getItem('ai_api_key');
+    if (!encryptedKey) return '';
+    return decryptApiKey(encryptedKey);
+  }
+  return '';
 };
 
 export const hasApiKey = (): boolean => {
-  return !!localStorage.getItem('ai_api_key');
+  if (typeof window !== 'undefined') {
+    return !!window.localStorage.getItem('ai_api_key');
+  }
+  return false;
 };

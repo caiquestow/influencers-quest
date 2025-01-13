@@ -3,7 +3,7 @@
 
 import { ArrowLeft, Search, Settings, Key } from 'lucide-react';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAnalysis } from '@/contexts/AnalysisContext';
 import { normalizeInfluencerName } from '@/lib/mockData';
@@ -37,6 +37,7 @@ export default function ResearchPage() {
     addInfluencerToLeaderboard,
   } = useAnalysis();
 
+  const [isClient, setIsClient] = useState(false);
   const [timeRange, setTimeRange] = useState<string>('month');
   const [influencerName, setInfluencerName] = useState<string>('');
   const [claimsCount, setClaimsCount] = useState<number>(3);
@@ -49,6 +50,10 @@ export default function ResearchPage() {
   const [progress, setProgress] = useState<number>(0);
   const [isModalLoading, setIsModalLoading] = useState<boolean>(true);
   const [apiKeyModalOpen, setApiKeyModalOpen] = useState<boolean>(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const toggleJournal = (journalName: string) => {
     setJournals((prev) =>
@@ -76,6 +81,9 @@ export default function ResearchPage() {
   };
 
   const handleStartResearch = async () => {
+    // Verificação de cliente
+    if (!isClient) return;
+
     if (!influencerName.trim()) return;
 
     setModalOpen(true);
@@ -104,16 +112,17 @@ export default function ResearchPage() {
           newInfluencer = {
             ...newInfluencer,
             name: igData.name,
+            // @ts-expect-error: 'bio' não está definido na tipagem, mas é esperado aqui
             bio: igData.bio,
             role: igData.role,
             followers: igData.followers,
             socialLinks: {
               instagram: `https://instagram.com/${igData.username}`,
-              website: igData.website
+              website: igData.website,
             },
             postsCount: igData.posts,
             claims: aiResult.data.claims,
-            profilePicture: igData.profilePicture
+            profilePicture: igData.profilePicture,
           };
         }
       } catch (error) {
@@ -132,6 +141,11 @@ export default function ResearchPage() {
       router.push(`/`);
     }
   };
+
+  // Se não for cliente, não renderize nada
+  if (!isClient) {
+    return null;
+  }
 
   return (
     <div className="min-h-screen bg-[#0A0F1C]">
@@ -337,7 +351,7 @@ export default function ResearchPage() {
               />
             </div>
           </div>
-<div className="flex justify-end mt-8">
+          <div className="flex justify-end mt-8">
             <button
               onClick={handleStartResearch}
               disabled={!influencerName || analysisState === 'analyzing'}
