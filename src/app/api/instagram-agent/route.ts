@@ -22,7 +22,7 @@ export async function POST(request: Request): Promise<Response> {
         console.error('Python stderr:', data.toString());
       });
 
-      pythonProcess.on('close', (code) => {
+      pythonProcess.on('close', () => {
         try {
           const jsonMatches = dataString.match(/\{[^]*\}/g);
           if (jsonMatches) {
