@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="833e8c81-d5cf-47a0-ac50-ebb0c5c3194c" name="Changes" comment="" />
+    <list default="true" id="833e8c81-d5cf-47a0-ac50-ebb0c5c3194c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/instagram_agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/instagram_agent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/mockData.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/mockData.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/aiService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/aiService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -81,7 +87,7 @@
       <updated>1736432427341</updated>
       <workItem from="1736432429326" duration="317000" />
       <workItem from="1736432947721" duration="3384000" />
-      <workItem from="1736598645994" duration="21548000" />
+      <workItem from="1736598645994" duration="23755000" />
     </task>
     <servers />
   </component>

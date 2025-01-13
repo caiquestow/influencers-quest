@@ -4,7 +4,7 @@ import { generateMockClaims } from '@/lib/mockData';
 interface InstagramData {
   name: string;
   username: string;
-  bio: string;
+  bio?: string;
   followers: string;
   role: string;
   posts: number;

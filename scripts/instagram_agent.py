@@ -42,7 +42,7 @@ def get_instagram_data(username: str, api_key: str) -> Dict:
                 "name": profile.full_name or username,
                 "username": username,
                 "bio": profile.biography or "",
-                "followers": format_followers(profile.followers) if hasattr(profile, 'followers') else random.randint(1000, 500000),
+                "followers": format_followers(profile.followers) if hasattr(profile, 'followers') else 'N/A',
                 "role": role,
                 "posts": profile.mediacount if hasattr(profile, 'mediacount') else 0,
                 "profilePicture": "https://via.placeholder.com/150",  # URL de placeholder temporária

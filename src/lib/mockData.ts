@@ -1,4 +1,3 @@
-// src/lib/mockData.ts
 export interface Claim {
   id: string;
   text: string;
@@ -12,17 +11,21 @@ export interface Claim {
 export interface Influencer {
   id: string;
   name: string;
-  role: string;
-  bio: string;
+  role?: string;
+  bio?: string;
   category: string;
   trustScore: number;
-  followers: string;
+  followers?: string;
   yearlyRevenue: string;
   products: number;
   tags: string[];
   claims: Claim[];
   profilePicture?: string;
   claimsCount?: number;
+  socialLinks?: {
+    instagram?: string;
+    twitter?: string;
+  };
 }
 
 // Mock data pools
